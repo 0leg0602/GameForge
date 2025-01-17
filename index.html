@@ -1,0 +1,173 @@
+<html lang="en">
+  <head>
+    <title>GameForge</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Turret+Road:wght@200;300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="resources/images/game_service_logo.svg"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body style="margin: 0">
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 25px;
+        background: linear-gradient(45deg, #0019ff, #ffaa00);
+      "
+    >
+      <div style="display: flex; align-items: center">
+        <img
+          src="resources/images/game_service_logo.svg"
+          style="
+            max-width: 100px;
+            background: #535353f5;
+            border-radius: 12px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+          "
+        />
+        <h1 style="color: white">GameForge</h1>
+      </div>
+
+      <div style="margin-right: 10px">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('home')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span class="button-82-front text"> HOME </span>
+                </button>
+              </td>
+              <td rowspan="2">
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('about')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span
+                    class="button-82-front text"
+                    style="
+                      padding: unset;
+                      padding-top: 50%;
+                      padding-bottom: 50%;
+                      padding-left: 10px;
+                      padding-right: 10px;
+                    "
+                  >
+                    ABOUT
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('business_plan')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span class="button-82-front text">BUSINESS PLAN</span>
+                </button>
+              </td>
+              <td>
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('home')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span class="button-82-front text">SERVICES OFFERED</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('table_of_contents')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span class="button-82-front text"> Table of contents </span>
+                </button>
+              </td>
+              <td>
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('social_media')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span class="button-82-front text">SOCIAL MEDIA</span>
+                </button>
+              </td>
+              <td>
+                <button onkeydown = "return false"
+                  tabindex="-1"
+                  onclick="move_ball_to('home')"
+                  class="button-82-pushable"
+                  role="button"
+                >
+                  <span class="button-82-shadow"></span>
+                  <span class="button-82-edge"></span>
+                  <span class="button-82-front text">GIVING BACK</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="container" style="position: absolute; top: 0; z-index: -1"></div>
+
+    <script src="jsm/libs/ammo.wasm.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
