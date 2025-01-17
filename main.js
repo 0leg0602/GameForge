@@ -29,6 +29,7 @@ let instagram_logo;
 let tiktok_logo;
 let twitter_logo;
 let facebook_logo;
+let Canadian_Cancer_Society_logo;
 
 let business_plan_img;
 // Physics variables
@@ -98,7 +99,12 @@ function init() {
                             business_plan_img = new THREE.TextureLoader().load(
                               "resources/images/business_plan.png",
                               function () {
-                                after_load();
+                                Canadian_Cancer_Society_logo = new THREE.TextureLoader().load(
+                                  "resources/images/Canadian_Cancer_Society_logo.png",
+                                  function () {
+                                    after_load();
+                                  }
+                                );
                               }
                             );
                           }
@@ -318,11 +324,28 @@ function createObjects() {
 
   // platform
 
-  pos.set(-42, -0.5, 52);
-  create_box(pos, 30, 1, 30);
+  pos.set(-47, -0.5, 112);
+  create_box(pos, 40, 1, 150);
 
-  pos.set(-42, 2, 37);
-  create_box(pos, 30, 4, 1);
+  // top
+
+  pos.set(-47, 2, 37);
+  create_box(pos, 40, 4, 1);
+
+  // bottom
+
+  pos.set(-47, 2, 187);
+  create_box(pos, 40, 4, 1);
+
+  // right
+
+  pos.set(-67, 2, 112);
+  create_box(pos, 1, 4, 150);
+
+  // left
+
+  pos.set(-27, 2, 115);
+  create_box(pos, 1, 4, 144);
 
   // 	Ball
 
@@ -551,6 +574,76 @@ function createObjects() {
   rot.set(-Math.PI / 2, 0, 0);
 
   create_sprite(business_plan_img, pos, rot, 30);
+
+  // giving back
+
+  pos.set(53, 0.1, 48);
+  create_text("   We are planning to raise\n       people's awareness\n   about cancer by making\nan educational game about it.\nThis game is going to be free,\n   but anybody can donate.\n95% will go towards charities\n   that fight against cancer\n  and 5% to the developers\n who helped make the game.", font_norm, pos, 1.5);
+  
+  pos.set(53, 0.1, 42);
+  rot.set(-Math.PI / 2, 0, 0);
+
+  create_sprite(Canadian_Cancer_Society_logo, pos, rot, 15);
+
+  // services offered
+
+  pos.set(-47, 0.1, 45);
+  create_text("Idea Submission", font_norm, pos, 2);
+
+  pos.set(-47, 0.1, 47);
+  create_text_multiline(["People who have great", "video game ideas", "can submit their concepts", "through our online platform"], pos, 1.5);
+  
+  pos.set(-47, 0.1, 60);
+  create_text("Developer Matching", font_norm, pos, 2);
+
+  pos.set(-47, 0.1, 62);
+  create_text_multiline(["Our algorithms make it easy", "to find the best developer", "for your game"], pos, 1.5);
+  
+  pos.set(-47, 0.1, 73);
+  create_text("Communication Platform", font_norm, pos, 2);
+
+  pos.set(-47, 0.1, 75);
+  create_text_multiline(["Idea owners and game developers can:", "message each other,", "send files, make calls,", "and share their screens", "to collaborate seamlessly throughout", "the entire development process"], pos, 1.5);
+    
+  pos.set(-47, 0.1, 91);
+  create_text("Developer Portfolio", font_norm, pos, 2);
+
+  pos.set(-47, 0.1, 93);
+  create_text_multiline(["Each developer will have", "their own portfolio on which they", "can showcase their work", "This portfolio can help them",  "attract more projects."], pos, 1.5);
+     
+  pos.set(-47, 0.1, 108);
+  create_text_multiline(["Game Development", "Resources"], pos, 2);
+
+  pos.set(-47, 0.1, 112);
+  create_text_multiline(["We will offer resources such as", "tutorials, guides, textures,", "assets, fonts, etc.", "for game development to help", "both idea owners and developers", "improve their skills", "and", "create better games"], pos, 1.5);
+       
+  pos.set(-47, 0.1, 133);
+  create_text_multiline(["Project Management", "Tools"], pos, 2);
+
+  pos.set(-47, 0.1, 137);
+  create_text_multiline(["We will provide", "project management tools", "to help developers stay", "organized and efficiently", "manage their projects"], pos, 1.5);
+         
+  pos.set(-47, 0.1, 150);
+  create_text_multiline(["Feedback"], pos, 2);
+
+  pos.set(-47, 0.1, 152);
+  create_text_multiline(["Developers will be able to", "allow people to test their games", "through our platform and", "receive user feedback,", "so they can improve", "the game as it develops"], pos, 1.5);
+           
+  pos.set(-47, 0.1, 167);
+  create_text_multiline(["Game Publishing"], pos, 2);
+
+  pos.set(-47, 0.1, 169);
+  create_text_multiline(["Once the game is fully developed", "the game developer can", "directly publish it on", "our platform"], pos, 1.5);
+  
+}
+
+function create_text_multiline(text_array, pos, size){
+  for (const key in text_array) {
+      const text = text_array[key];
+      create_text(text, font_norm, pos, size);
+      pos.z+=(size*1.1);
+  }
+
 }
 
 function set_clip_action(times, positions) {
@@ -639,10 +732,10 @@ function move_ball_to(place) {
         ball.position.z,
         -42,
         10,
-        14,
+        -20,
         -42,
         0,
-        14,
+        -20,
       ]
     );
   } else if (place == "about") {
@@ -661,6 +754,26 @@ function move_ball_to(place) {
         15,
         0,
         57,
+      ]
+    );
+  } else if (place == "giving_back") {
+    clip_action = set_clip_action(
+      [0, 1, 2, 3],
+      [
+        ball.position.x,ball.position.y,ball.position.z,
+        ball.position.x,10,ball.position.z,
+        53,10,51,
+        53,0,51,
+      ]
+    );
+  } else if (place == "services_offered") {
+    clip_action = set_clip_action(
+      [0, 1, 2, 3],
+      [
+        ball.position.x,ball.position.y,ball.position.z,
+        ball.position.x,10,ball.position.z,
+        -47,10,40,
+        -47,0,40,
       ]
     );
   }
